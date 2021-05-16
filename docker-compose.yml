@@ -12,6 +12,12 @@ services:
       - "9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+  monica:
+    image: monica
+    labels:
+      - "traefik.http.routers.monica.rule=Host(`monica.docker.localhost`)"
+      - "traefik.enable=true"
+      - "traefik.http.services.monica.loadbalancer.server.port=80"
 
 networks:
   default:
