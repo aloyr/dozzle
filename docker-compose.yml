@@ -8,8 +8,6 @@ services:
       - "traefik.http.routers.dozzle.rule=Host(`dozzle.docker.localhost`)"
       - "traefik.enable=true"
       - "traefik.http.services.dozzle.loadbalancer.server.port=8080"
-    ports:
-      - "9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   monica:
